@@ -1,0 +1,17 @@
+development:
+  adapter: mysql2
+  host: 127.0.0.1
+  database: watertracker_development
+  username: root
+  password:
+  encoding: utf8
+
+test:
+  url: <%= ENV['DATABASE_URL'] %>
+  encoding: utf8
+
+production:
+  url: <%= ENV['DATABASE_URL'] %>
+  database: db
+  sslcipher: 'DHE-RSA-AES256-SHA'
+  encoding: utf8
