@@ -30,4 +30,8 @@ class User < ApplicationRecord
     email.split('@')[0]
   end
 
+  def is_admin
+    false
+  end
+
 end
