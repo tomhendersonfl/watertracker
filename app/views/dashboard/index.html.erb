@@ -1,0 +1,7 @@
+<section id="content">
+    <div class="container-fluid">
+        <%= current_user.is_admin ? render(partial: 'dashboard/admin/header') : render(partial: 'dashboard/user/header') %>
+        <%= current_user.is_admin ? render(partial: 'dashboard/admin/layout') : render(partial: 'dashboard/user/layout') %>
+        <%= current_user.is_admin ? render(partial: 'dashboard/admin/footer') : render(partial: 'dashboard/user/footer') %>
+    </div>
+</section>

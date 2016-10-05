@@ -1,0 +1,31 @@
+<div class="mini-charts">
+    <div class="row">
+
+        <!-- Total Users -->
+        <div class="col-md-6">
+            <div class="mini-charts-item" data-ma-theme="blue">
+                <div class="clearfix">
+                    <div class="count">
+                        <medium>Total Users</medium >
+                        <h2><%= Tenant.current.total_users %></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Total Users -->
+
+        <!-- New Users -->
+        <div class="col-md-6">
+            <div class="mini-charts-item" data-ma-theme="green">
+                <div class="clearfix">
+                    <div class="count">
+                        <medium>New Users this month</medium >
+                        <h2><%= Tenant.current.new_users_this_month %></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /New Users -->
+
+    </div>
+</div>

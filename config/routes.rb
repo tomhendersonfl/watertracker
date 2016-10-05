@@ -33,8 +33,9 @@
 
 Rails.application.routes.draw do
   devise_for :users
-  # root 'welcome#index'
-  root 'chat_rooms#index'
+  root 'dashboard#index'
+  # root 'chat_rooms#index'
+  # root 'devise/sessions#new'
   resources :tenants
   resources :chat_rooms, only: [:new, :create, :show, :index]
   get 'chat_central', to: 'chat_rooms#home'

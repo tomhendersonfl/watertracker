@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-sm-8">
+    <%= render partial: 'dashboard/user/body' %>
+  </div>
+  <div class="col-sm-4">
+    <h4>Your Dashboard</h4>
+    <p class="">
+      Welcome to your Strengths Report Thriver! This report is generated from your survey answers and shows which areas of your lifestyle are the strongest and where you may need assistance.
+    </p>
+    <p>
+      After viewing your Strengths Report, your next step is to choose
+      from a set of recommended Action Steps specifically prioritized for you.
+    </p>
+    <p>
+      Click the button below or <%= link_to 'click here', users_path %> to go to users.
+    </p>
+
+    <br>
+    <br>
+    <ul class="actions pull-left">
+      <li>
+        <%= link_to "Take me to my users".html_safe, users_path, class: "btn btn-primary-outline btn-thrive", style: "width: 100%" %>
+      </li>
+    </ul>
+
+
+  </div>
+</div>
