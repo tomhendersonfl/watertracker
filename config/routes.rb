@@ -1,6 +1,14 @@
 # == Route Map
 #
 #                   Prefix Verb   URI Pattern                    Controller#Action
+#                  tenants GET    /tenants(.:format)             tenants#index
+#                          POST   /tenants(.:format)             tenants#create
+#               new_tenant GET    /tenants/new(.:format)         tenants#new
+#              edit_tenant GET    /tenants/:id/edit(.:format)    tenants#edit
+#                   tenant GET    /tenants/:id(.:format)         tenants#show
+#                          PATCH  /tenants/:id(.:format)         tenants#update
+#                          PUT    /tenants/:id(.:format)         tenants#update
+#                          DELETE /tenants/:id(.:format)         tenants#destroy
 #         new_user_session GET    /users/sign_in(.:format)       devise/sessions#new
 #             user_session POST   /users/sign_in(.:format)       devise/sessions#create
 #     destroy_user_session DELETE /users/sign_out(.:format)      devise/sessions#destroy
@@ -16,7 +24,6 @@
 #                          PATCH  /users(.:format)               devise/registrations#update
 #                          PUT    /users(.:format)               devise/registrations#update
 #                          DELETE /users(.:format)               devise/registrations#destroy
-#                     root GET    /                              chat_rooms#index
 #               chat_rooms GET    /chat_rooms(.:format)          chat_rooms#index
 #                          POST   /chat_rooms(.:format)          chat_rooms#create
 #            new_chat_room GET    /chat_rooms/new(.:format)      chat_rooms#new
@@ -28,19 +35,24 @@
 #                          PATCH  /users/:id(.:format)           users#update
 #                          PUT    /users/:id(.:format)           users#update
 #                          DELETE /users/:id(.:format)           users#destroy
-#                                 /cable                         #<ActionCable::Server::Base:0x007f94b9a03520 @mutex=#<Monitor:0x007f94b9a0bf40 @mon_owner=nil, @mon_count=0, @mon_mutex=#<Thread::Mutex:0x007f94b9a0be78>>, @pubsub=nil, @worker_pool=nil, @event_loop=nil, @remote_connections=nil>
+#                     root GET    /                              dashboard#index
+#                                 /cable                         #<ActionCable::Server::Base:0x007f9ed4511330 @mutex=#<Monitor:0x007f9ed45111f0 @mon_owner=nil, @mon_count=0, @mon_mutex=#<Thread::Mutex:0x007f9ed4511010>>, @pubsub=nil, @worker_pool=nil, @event_loop=nil, @remote_connections=nil>
 #
 
 Rails.application.routes.draw do
+  get 'static_pages/watermap'
+  get 'static_pages/support'
+  get 'static_pages/contact'
+
+  resources :tenants
   devise_for :users
   # root 'welcome#index'
-  root 'chat_rooms#index'
-  resources :tenants
   resources :chat_rooms, only: [:new, :create, :show, :index]
   get 'chat_central', to: 'chat_rooms#home'
   resources :users, except: [:new, :create]
   # get 'welcome', to: 'welcome#index'
   # get 'welcome/intro', to: 'welcome#intro'
 
+  root 'dashboard#index'
   mount ActionCable.server => '/cable'
 end

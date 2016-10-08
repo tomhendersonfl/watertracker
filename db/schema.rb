@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161004222018) do
+ActiveRecord::Schema.define(version: 20160926175714) do
 
   create_table "chat_rooms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20161004222018) do
     t.string   "support_link"
     t.string   "support_email"
     t.string   "access_token",         limit: 20
-    t.string   "type",                                              null: false
+    t.string   "tenant_type",                                       null: false
     t.string   "region",                                            null: false
     t.boolean  "is_active",                          default: true, null: false
     t.datetime "created_at",                                        null: false
@@ -64,13 +64,21 @@ ActiveRecord::Schema.define(version: 20161004222018) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "tenant_id"
+    t.string   "subdomain"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "contact_number"
+    t.boolean  "is_admin"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["tenant_id"], name: "index_users_on_tenant_id", using: :btree
   end
 
   add_foreign_key "chat_rooms", "users"
   add_foreign_key "messages", "chat_rooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "users", "tenants"
 end

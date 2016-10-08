@@ -2,23 +2,51 @@
 
 <h1>Tenants</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tenants.each do |tenant| %>
+<div class="table-responsive">
+  <table id="grid-tenants" class="table">
+    <thead>
       <tr>
-        <td><%= link_to 'Show', tenant %></td>
-        <td><%= link_to 'Edit', edit_tenant_path(tenant) %></td>
-        <td><%= link_to 'Destroy', tenant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th data-column-id="id" data-identifier="true">Tenant Id</th>
+        <th data-column-id="tenant_name" data-order="asc">Tenant Name</th>
+        <th data-column-id="subdomain">Subdomain</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+  </table>
+</div>
+
+<%= content_for :body_end do %>
+<%= init_grid(
+  "grid-tenants",
+  url: "/tenants.json",
+  primaryKey: "id",
+  formatters: {
+
+  },
+  handlers: {
+    click: { fn: :inspect, url: "/tenants", identifier: 'id'}
+  }
+) %>
+<% end %>
+
+
+
+<!-- # <table> -->
+<!-- #   <thead>
+#     <tr>
+  #     <th colspan="3"></th>
+  #   </tr>
+  # </thead>
+  #
+  # <tbody>
+    # <% @tenants.each do |tenant| %>
+      # <tr>
+        # <td><%= link_to 'Show', tenant %></td>
+        # <td><%= link_to 'Edit', edit_tenant_path(tenant) %></td>
+        # <td><%= link_to 'Destroy', tenant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      # </tr>
+    # <% end %>
+  # </tbody>
+# </table> -->
 
 <br>
 

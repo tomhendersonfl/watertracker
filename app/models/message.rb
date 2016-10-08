@@ -3,7 +3,7 @@
 # Table name: messages
 #
 #  id           :integer          not null, primary key
-#  body         :text
+#  body         :text(65535)
 #  user_id      :integer
 #  chat_room_id :integer
 #  created_at   :datetime         not null

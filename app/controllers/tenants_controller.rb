@@ -69,6 +69,6 @@ class TenantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tenant_params
-      params.fetch(:tenant, {})
+      params.require(:tenant).permit(:subdomain, :tenant_name, :custom_domain, :favicon, :desktop, :login, :logo, :privacy_policy, :terms_and_conditions, :footer_text, :support_number, :support_link, :support_email, :access_token, :type, :region, :is_active)
     end
 end

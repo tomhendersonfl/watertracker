@@ -26,8 +26,8 @@ class CreateTenants < ActiveRecord::Migration[5.0]
 
       t.string   :access_token,     null: true,  limit: 20
 
-      t.string   :type,             null: false
-      t.string   :region            null: false
+      t.string   :tenant_type,      null: false
+      t.string   :region,           null: false
       t.boolean  :is_active,        null: false,           default: true
       t.timestamps                  null: false
     end
