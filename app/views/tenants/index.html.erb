@@ -1,26 +1,58 @@
-<section id="content">
-  <div class="container">
+  <section id="content">
+    <div class="container">
+      <div class="block-header">
+        <h2>Tenant List</h2>
 
-    <div class="card">
-      <div class="card-header ch-alt m-b-20">
-        <h2>Tenants
-          <small>Create and maintain white-labeled application tenants.</small>
-        </h2>
-        <a href="<%= new_tenant_path %>" class="btn bgm-red btn-float waves-effect"><i class="zmdi zmdi-plus"></i>
-        </a>
+        <ul class="actions">
+          <li>
+            <a href="">
+              <i class="zmdi zmdi-trending-up"></i>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="zmdi zmdi-check-all"></i>
+            </a>
+          </li>
+          <li class="dropdown">
+            <a href="" data-toggle="dropdown">
+              <i class="zmdi zmdi-more-vert"></i>
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li>
+                <a href="">Refresh</a>
+              </li>
+              <li>
+                <a href="">Manage Widgets</a>
+              </li>
+              <li>
+                <a href="">Widgets Settings</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
       </div>
 
-      <div class="table-responsive">
-        <table id="data-table-basic" class="table table-striped bootgrid-table" aria-busy="false">
-          <thead>
-            <tr>
-              <th data-column-id="id" class="text-left" style="">
-              <a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">ID</span><span class="zmdi icon zmdi-sort-amount-desc"></span></a>
-            </th>
-              <th data-column-id="sender" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">Tenant</span><span class="zmdi icon"></span></a></th>
-              <th data-column-id="received" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">Subdomain</span><span class="zmdi icon"></span></a></th></tr>
-          </thead>
-          <tbody>
+      <div class="card">
+        <div class="card-header ch-alt m-b-20">
+          <h2>Tenants
+            <small>Create and maintain white-labeled application tenants.</small>
+          </h2>
+          <a href="<%= new_tenant_path %>" class="btn bgm-red btn-float waves-effect"><i class="zmdi zmdi-plus"></i>
+          </a>
+        </div>
+
+        <div class="table-responsive">
+          <table id="data-table-basic" class="table table-striped">
+            <thead>
+              <tr>
+                <th data-column-id="id" data-type="numeric">ID</th>
+                <th data-column-id="sender">Sender</th>
+                <th data-column-id="received" data-order="desc">Received</th>
+              </tr>
+            </thead>
+            <tbody>
               <% @tenants.each do |t|%>
               <tr>
                 <td class="text-left" style=""><%= link_to t.id, edit_tenant_path(t) %></td>
@@ -28,25 +60,86 @@
                 <td class="text-left" style=""><%= t.subdomain %></td>
               </tr>
               <% end %>
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
 
     </div>
   </section>
+</section>
 
+<footer id="footer">
+  Copyright &copy; 2016 Henderson Enterprises, Inc.
 
-  <%= content_for :body_end do %>
-  <%= init_grid(
-                "grid-tenants",
-                url: "/tenants.json",
-                primaryKey: "id",
-                formatters: {
+  <ul class="f-menu">
+    <li><a href="">Home</a></li>
+    <li><a href="">Dashboard</a></li>
+    <li><a href="">Reports</a></li>
+    <li><a href="">Support</a></li>
+    <li><a href="">Contact</a></li>
+  </ul>
+</footer>
 
-                },
-                handlers: {
-                  click: { fn: :inspect, url: "/tenants", identifier: 'id'}
-                }
-                ) %>
-                <% end %>
+<!-- Page Loader -->
+<div class="page-loader">
+  <div class="preloader pls-blue">
+    <svg class="pl-circular" viewBox="25 25 50 50">
+      <circle class="plc-path" cx="50" cy="50" r="20" />
+    </svg>
+
+    <p>Please wait...</p>
+  </div>
+</div>
+
+<script src="js/app.min.js"></script>
+
+<!-- Data Table -->
+<script type="text/javascript">
+  $(document).ready(function(){
+      //Basic Example
+      $("#data-table-basic").bootgrid({
+        css: {
+          icon: 'zmdi icon',
+          iconColumns: 'zmdi-view-module',
+          iconDown: 'zmdi-sort-amount-desc',
+          iconRefresh: 'zmdi-refresh',
+          iconUp: 'zmdi-sort-amount-asc'
+        },
+      });
+
+      //Selection
+      $("#data-table-selection").bootgrid({
+        css: {
+          icon: 'zmdi icon',
+          iconColumns: 'zmdi-view-module',
+          iconDown: 'zmdi-sort-amount-desc',
+          iconRefresh: 'zmdi-refresh',
+          iconUp: 'zmdi-sort-amount-asc'
+        },
+        selection: true,
+        multiSelect: true,
+        rowSelect: true,
+        keepSelection: true
+      });
+
+      //Command Buttons
+      $("#data-table-command").bootgrid({
+        css: {
+          icon: 'zmdi icon',
+          iconColumns: 'zmdi-view-module',
+          iconDown: 'zmdi-sort-amount-desc',
+          iconRefresh: 'zmdi-refresh',
+          iconUp: 'zmdi-sort-amount-asc'
+        },
+        formatters: {
+          "commands": function(column, row) {
+            return "<button type=\"button\" class=\"btn btn-icon command-edit waves-effect waves-circle\" data-row-id=\"" + row.id + "\"><span class=\"zmdi zmdi-edit\"></span></button> " +
+            "<button type=\"button\" class=\"btn btn-icon command-delete waves-effect waves-circle\" data-row-id=\"" + row.id + "\"><span class=\"zmdi zmdi-delete\"></span></button>";
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
