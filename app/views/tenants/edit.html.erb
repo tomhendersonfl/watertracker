@@ -1,6 +1,24 @@
-<h1>Editing Tenant</h1>
+<ol class="breadcrumb">
+    <li><%= link_to "Back to Tenants", tenants_path %></li>
+</ol>
 
-<%= render 'form', tenant: @tenant %>
+<section id="content">
+    <div class="container">
 
-<%= link_to 'Show', @tenant %> |
-<%= link_to 'Back', tenants_path %>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Edit a Tenant
+                            <small>Tenants represent utility companies and government agencies.
+                            </small>
+                        </h2>
+                    </div>
+                    <div class="card-body card-padding">
+                        <%= render partial: 'form', locals: {tenant: @tenant} %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

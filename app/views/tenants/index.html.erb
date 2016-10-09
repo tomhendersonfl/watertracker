@@ -13,18 +13,25 @@
       <div class="table-responsive">
         <table id="data-table-basic" class="table table-striped bootgrid-table" aria-busy="false">
           <thead>
-            <tr><th data-column-id="id" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">ID</span><span class="zmdi icon zmdi-sort-amount-desc"></span></a></th>
+            <tr>
+              <th data-column-id="id" class="text-left" style="">
+              <a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">ID</span><span class="zmdi icon zmdi-sort-amount-desc"></span></a>
+            </th>
               <th data-column-id="sender" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">Tenant</span><span class="zmdi icon"></span></a></th>
-              <th data-column-id="received" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">Received</span><span class="zmdi icon"></span></a></th></tr>
-            </thead>
-            <tbody>
+              <th data-column-id="received" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">Subdomain</span><span class="zmdi icon"></span></a></th></tr>
+          </thead>
+          <tbody>
               <% @tenants.each do |t|%>
-              <tr data-row-id="0"><td class="text-left" style=""><%= t.id %></td><td class="text-left" style=""><%= t.tenant_name%></td><td class="text-left" style=""><%= t.subdomain %></td></tr>
+              <tr>
+                <td class="text-left" style=""><%= link_to t.id, edit_tenant_path(t) %></td>
+                <td class="text-left" style=""><%= t.tenant_name%></td>
+                <td class="text-left" style=""><%= t.subdomain %></td>
+              </tr>
               <% end %>
-            </tbody>
-          </table>
-        </div>
+          </tbody>
+        </table>
       </div>
+    </div>
 
     </div>
   </section>
