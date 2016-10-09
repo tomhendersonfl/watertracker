@@ -6,16 +6,13 @@
             </div>
             <div class="sp-info">
                 Tom Henderson
-
                 <i class="zmdi zmdi-caret-down"></i>
             </div>
         </a>
         <ul class="main-menu">
-          <li>
-              <a href="profile-about.html">
-                  <i class="zmdi zmdi-account"></i>
-                  View Profile</a>
-          </li>
+
+          <li><%= link_to "<i class='zmdi zmdi-account'></i>View Profile".html_safe, static_pages_profile_about_path %></li>
+
           <li>
               <a href="">
                   <i class="zmdi zmdi-input-antenna"></i>
@@ -41,13 +38,21 @@
             TWDB Resources
           </a>
           <ul>
-
             <li><%= link_to "<i class='zmdi zmdi-map'></i> Texas Water Planning Region Map".html_safe, static_pages_watermap_path %></li>
 
             <li><a href="">SWIFT Funding Options</a></li>
             <li><a href=""><i class="zmdi zmdi-upload"></i>Submit Water Conservation Plan</a></li>
             <li><a href=""><i class="zmdi zmdi-upload"></i>Submit Utility Profile</a></li>
             <li><a href=""><i class="zmdi zmdi-upload"></i>Submit Water Loss Audit</a></li>
+          </ul>
+        </li>
+
+        <li class="sub-menu">
+          <a href="" data-ma-action="submenu-toggle"><i class="zmdi zmdi-eyedropper"></i>Conservation Scenarios</a>
+          <ul>
+            <li><a href="">Assumptions</a></li>
+            <li><a href="">Scenarios</a></li>
+            <li><a href="">Conservation Activities</a></li>
           </ul>
         </li>
 
