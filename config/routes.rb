@@ -40,19 +40,16 @@
 #
 
 Rails.application.routes.draw do
+  root 'dashboard#index'
+
   get 'static_pages/watermap'
   get 'static_pages/support'
   get 'static_pages/contact'
-
-  resources :tenants
-  devise_for :users
-  # root 'welcome#index'
-  resources :chat_rooms, only: [:new, :create, :show, :index]
   get 'chat_central', to: 'chat_rooms#home'
-  resources :users, except: [:new, :create]
-  # get 'welcome', to: 'welcome#index'
-  # get 'welcome/intro', to: 'welcome#intro'
 
-  root 'dashboard#index'
+  devise_for :users
+  resources :tenants
+  resources :chat_rooms, only: [:new, :create, :show, :index]
+  resources :users, except: [:new, :create]
   mount ActionCable.server => '/cable'
 end
