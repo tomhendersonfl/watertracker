@@ -42,4 +42,6 @@ class User < ApplicationRecord
     true
   end
 
+
+
 end

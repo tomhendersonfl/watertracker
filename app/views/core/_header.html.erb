@@ -1,6 +1,6 @@
 <header id="header" class="clearfix" data-ma-theme="blue">
-  <ul class="wt-header">
-    <li id="menu-trigger" data-trigger="#sidebar" class="hi-trigger ma-trigger" data-ma-action="sidebar-open" data-ma-target="#sidebar">
+  <ul class="h-inner">
+    <li class="hi-trigger ma-trigger" data-ma-action="sidebar-open" data-ma-target="#sidebar">
       <div class="line-wrap">
         <div class="line top"></div>
         <div class="line center"></div>
@@ -12,10 +12,37 @@
       Texas Water Development Board
     </li>
 
-    <li class="wt-header-link"><%= link_to "<i class='zmdi zmdi-help'></i>Support".html_safe, static_pages_support_path %></li>
+    <li class="hi-logo hidden-xs">
+      <%= link_to "<i class='zmdi zmdi-help'></i>Support".html_safe, static_pages_support_path %>
+    </li>
 
-    <li class="wt-header-link"><%= link_to "<i class='zmdi zmdi-email'></i>Contact".html_safe, static_pages_contact_path %></li>
+    <li class="hi-logo hidden-xs">
+      <%= link_to "<i class='zmdi zmdi-help'></i>Contact".html_safe, static_pages_contact_path %>
+    </li>
+
+    <a data-toggle="dropdown" href="">
+      <i class="him-icon zmdi zmdi-help"></i>
+    </a>
+
+    <li class="pull-right">
+      <ul class="hi-menu">
+        <%= render partial: 'notifications/summary' %>
+      </ul>
+    </li>
+
+
+    <!-- <li class="wt-header-link"><%= link_to "<i class='zmdi zmdi-help'></i>Support".html_safe, static_pages_support_path %></li>
+
+    <li class="wt-header-link"><%= link_to "<i class='zmdi zmdi-email'></i>Contact".html_safe, static_pages_contact_path %></li> -->
 
   </ul>
 
+
+  <!-- Top Search Content -->
+  <div class="h-search-wrap">
+    <div class="hsw-inner">
+      <i class="hsw-close zmdi zmdi-arrow-left" data-ma-action="search-close"></i>
+      <input type="text">
+    </div>
+  </div>
 </header>

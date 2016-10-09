@@ -20,7 +20,6 @@
  *
  *= require app/css/app_1.min
  *= require app/css/app_2.min
- *= require overrides
  *= require goldwater
 
  */
