@@ -1,4 +1,4 @@
-# == Schema Information
+  # == Schema Information
 #
 # Table name: tenants
 #
@@ -27,5 +27,14 @@
 class Tenant < ApplicationRecord
 
   has_many :users
+
+  validates :tenant_name, presence: true
+  validates :subdomain, presence: true
+  before_validation :set_defaults
+
+  def set_defaults
+    self.tenant_type = 'utility'
+    self.region = 'Texas'
+  end
 
 end

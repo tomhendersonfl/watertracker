@@ -31,19 +31,23 @@ class TenantsController < ApplicationController
 
   # POST /tenants
   # POST /tenants.json
-  def create
+ def create
     @tenant = Tenant.new(tenant_params)
-
+    base = 'Failed to save the tenant. '
     respond_to do |format|
       if @tenant.save
-        format.html { redirect_to @tenant, notice: 'Tenant was successfully created.' }
-        format.json { render :show, status: :created, location: @tenant }
+        flash[:success] = 'The tenant was successfully created.'
+        format.html { redirect_to edit: @tenant  }
+        format.json { render json: { rows: [@tenant.marshall], status: 200, total: 1 } }
       else
-        format.html { render :new }
-        format.json { render json: @tenant.errors, status: :unprocessable_entity }
+        flash[:error] = 'An error occured while creating the tenant.'
+        format.html { render action: "new", alert: base + @tenant.errors.full_messages.to_sentence + "." }
+        format.json { render json: { errors: @tenant.errors, status: :unprocessable_entity } }
       end
     end
-  end
+  end # def create
+
+
 
   # PATCH/PUT /tenants/1
   # PATCH/PUT /tenants/1.json
@@ -53,7 +57,7 @@ class TenantsController < ApplicationController
         format.html { redirect_to @tenant, notice: 'Tenant was successfully updated.' }
         format.json { render :show, status: :ok, location: @tenant }
       else
-        format.html { render :edit }
+        format.html { render :edit, @tenant}
         format.json { render json: @tenant.errors, status: :unprocessable_entity }
       end
     end
@@ -77,6 +81,6 @@ class TenantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tenant_params
-      params.require(:tenant).permit(:subdomain, :tenant_name, :custom_domain, :favicon, :desktop, :login, :logo, :privacy_policy, :terms_and_conditions, :footer_text, :support_number, :support_link, :support_email, :access_token, :type, :region, :is_active)
+      params.require(:tenant).permit(Tenant.column_names)
     end
 end
