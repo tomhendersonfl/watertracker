@@ -1,60 +1,59 @@
 <section id="content">
-    <div class="container">
+  <div class="container">
 
-        <div class="card">
-            <div class="card-header ch-alt m-b-20">
-                <h2>Tenants
-                    <small>Create and maintain white-labeled application tenants.</small>
-                </h2>
-                <ul class="actions">
-                    <li>
-                        <a href="">
-                            <i class="zmdi zmdi-refresh-alt"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <i class="zmdi zmdi-download"></i>
-                        </a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="" data-toggle="dropdown">
-                            <i class="zmdi zmdi-more-vert"></i>
-                        </a>
+    <div class="card">
+      <div class="card-header ch-alt m-b-20">
+        <h2>Tenants
+          <small>Create and maintain white-labeled application tenants.</small>
+        </h2>
+        <ul class="actions">
+          <li>
+            <a href="">
+              <i class="zmdi zmdi-refresh-alt"></i>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="zmdi zmdi-download"></i>
+            </a>
+          </li>
+          <li class="dropdown">
+            <a href="" data-toggle="dropdown">
+              <i class="zmdi zmdi-more-vert"></i>
+            </a>
 
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            <li>
-                                <a href="">Change Date Range</a>
-                            </li>
-                            <li>
-                                <a href="">Change Graph Type</a>
-                            </li>
-                            <li>
-                                <a href="">Other Settings</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <a href="<%= new_tenant_path %>" class="btn bgm-red btn-float waves-effect"><i class="zmdi zmdi-plus"></i>
-                </a>
-            </div>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li>
+                <a href="">Change Date Range</a>
+              </li>
+              <li>
+                <a href="">Change Graph Type</a>
+              </li>
+              <li>
+                <a href="">Other Settings</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <a href="<%= new_tenant_path %>" class="btn bgm-red btn-float waves-effect"><i class="zmdi zmdi-plus"></i>
+        </a>
+      </div>
 
-            <div class="table-responsive">
-                <table id="grid-tenants" class="table">
-                    <thead>
-                        <tr>
-                            <th data-column-id="tenant_name" data-order="asc">Name</th>
-                            <th data-column-id="subdomain" data-identifier="true">Subdomain</th>
-                            <th data-column-id="is_active" data-converter="yesno">Active?</th>
-                            <th data-column-id="access_token">Access Token</th>
-                        </tr>
-                    </thead>
-                </table>
-            </div>
-
-        </div>
+      <div class="table-responsive">
+        <table id="grid-tenants" class="table">
+          <thead>
+            <tr>
+              <th data-column-id="tenant_name" data-order="asc">Name</th>
+              <th data-column-id="id" data-identifier="true">id</th>
+              <th data-column-id="is_active" data-converter="yesno">Active?</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
 
     </div>
+
+  </div>
 </section>
 
 <%= content_for :body_end do %>

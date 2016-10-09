@@ -1,0 +1,80 @@
+//
+// Icon Font: icons
+//
+
+@font-face {
+  font-family: "icons";
+  src: font-url("icons/icons.eot");
+  src: font-url("icons/icons.eot?#iefix") format("embedded-opentype"),
+  font-url("icons/icons.woff") format("woff"),
+  font-url("icons/icons.ttf") format("truetype"),
+  font-url("icons/icons.svg#icons") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "icons";
+    src: font-url("icons/icons.svg#icons") format("svg");
+  }
+}
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+.icon-i-diet:before,
+.icon-i-enviro:before,
+.icon-i-level-advanced:before,
+.icon-i-level-easy:before,
+.icon-i-level-intermediate:before,
+.icon-i-move:before,
+.icon-i-rejuv:before,
+.icon-i-spirit:before {
+  display: inline-block;
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.icon-i-diet:before { content: "\f100"; }
+.icon-i-enviro:before { content: "\f102"; }
+.icon-i-level-advanced:before { content: "\f107"; }
+.icon-i-level-easy:before { content: "\f105"; }
+.icon-i-level-intermediate:before { content: "\f106"; }
+.icon-i-move:before { content: "\f101"; }
+.icon-i-rejuv:before { content: "\f103"; }
+.icon-i-spirit:before { content: "\f104"; }
+
+.icons-i-diet {
+  color: #00cb00;
+  fill: #00cb00;
+}
+
+.icons-i-move {
+  color: #01b9da;
+  fill: #01b9da;
+}
+
+.icons-i-enviro {
+  color: #ff9100;
+  fill: #ff9100;
+}
+
+.icons-i-rejuv {
+  color: #ffd200;
+  fill: #ffd200;
+}
+
+.icons-i-spirit {
+  color: #fe2501;
+  fill: #fe2501;
+}
