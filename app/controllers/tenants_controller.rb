@@ -1,6 +1,10 @@
 class TenantsController < ApplicationController
   before_action :set_tenant, only: [:show, :edit, :update, :destroy]
 
+  # GET /tenants/track
+  def track
+  end
+
   # GET /tenants
   # GET /tenants.json
   def index

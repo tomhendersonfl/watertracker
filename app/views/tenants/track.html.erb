@@ -1,0 +1,292 @@
+<section id="content">
+  <div class="container">
+
+    <div class="card">
+      <div class="card-header ch-alt m-b-20">
+        <h2>Tenants
+          <small>Create and maintain white-labeled application tenants.</small>
+        </h2>
+        <a href="<%= new_tenant_path %>" class="btn bgm-red btn-float waves-effect"><i class="zmdi zmdi-plus"></i>
+        </a>
+      </div>
+
+      <!-- <div class="table-responsive">
+        <table id="grid-tenants" class="table table-striped">
+          <thead>
+            <tr>
+              <th data-column-id="tenant_name" data-order="asc">Name</th>
+              <th data-column-id="id" data-identifier="true">id</th>
+              <th data-column-id="is_active" data-converter="yesno">Active?</th>
+            </tr>
+          </thead>
+        </table>
+      </div> -->
+
+      <div class="table-responsive">
+        <table id="grid-tenants" class="table table-striped">
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script type="text/javascript">
+  var dataURL = "data/tenant-index.json"
+  var callback = "utilities"
+  var dataObject = {
+    "headings" : {
+      "utility_name" : "UTILITY NAME",
+      "county_name" : "COUNTY",
+      "region_name" : "REGION",
+      "status" : "STATUS",
+      "status_date" : "STATUS DATE"
+      },
+    "utilities" : [
+      {
+        "utility_name" : "Bayou Vista city",
+        "county_name" : "Galveston",
+        "region_name" : "H",
+        "status" : "Complete",
+        "status_date" : "7/18/2015"
+      },
+      {
+        "utility_name" : "Clear Lake Shores city",
+        "county_name" : "Galveston",
+        "region_name" : "H",
+        "status" : "Complete",
+        "status_date" : "7/31/2015"
+      },
+      {
+        "utility_name" : "Dickinson city",
+        "county_name" : "Galveston",
+        "region_name" : "H",
+        "status" : "Complete",
+        "status_date" : "8/1/2015"
+      },
+      {
+        "utility_name" : "Friendswood city (pt.)",
+        "county_name" : "Galveston",
+        "region_name" : "H",
+        "status" : "Complete",
+        "status_date" : "9/25/2015"
+      },
+      {
+        "utility_name" : "Galveston city",
+        "county_name" : "Galveston",
+        "region_name" : "H",
+        "status" : "Complete",
+        "status_date" : "11/14/2015"
+      },
+      {
+        "utility_name" : "Houston city",
+        "county_name" : "Harris",
+        "region_name" : "H",
+        "status" : "Interviewed",
+        "status_date" : "6/1/2015"
+      },
+      {
+        "utility_name" : "Hubbard city",
+        "county_name" : "Hill",
+        "region_name" : "G",
+        "status" : "Not Enrolled",
+        "status_date" : "3/31/2016"
+      },
+      {
+        "utility_name" : "Hudson city",
+        "county_name" : "Angelina",
+        "region_name" : "I",
+        "status" : "Not Enrolled",
+        "status_date" : "3/31/2016"
+      },
+      {
+        "utility_name" : "Humble city",
+        "county_name" : "Harris",
+        "region_name" : "H",
+        "status" : "Data Entered",
+        "status_date" : "8/30/2015"
+      },
+      {
+        "utility_name" : "Hunters Creek Village city",
+        "county_name" : "Harris",
+        "region_name" : "H",
+        "status" : "Data Verified",
+        "status_date" : "7/18/2015"
+      },
+      {
+        "utility_name" : "Jaciato city",
+        "county_name" : "Harris",
+        "region_name" : "H",
+        "status" : "Complete",
+        "status_date" : "3/6/2016"
+      },
+      {
+        "utility_name" : "Jersey city",
+        "county_name" : "Harris",
+        "region_name" : "H",
+        "status" : "Interviewed",
+        "status_date" : "11/25/2015"
+      },
+      {
+        "utility_name" : "League city",
+        "county_name" : "Galveston",
+        "region_name" : "H",
+        "status" : "Complete",
+        "status_date" : "6/25/2015"
+      },
+      {
+        "utility_name" : "Missouri City city (pt.)",
+        "county_name" : "Harris",
+        "region_name" : "H",
+        "status" : "Interviewed",
+        "status_date" : "4/1/2016"
+      },
+      {
+        "utility_name" : "Morgan's Point city",
+        "county_name" : "Harris",
+        "region_name" : "H",
+        "status" : "Interviewed",
+        "status_date" : "5/1/2016"
+      },
+      {
+        "utility_name" : "Nassau Bay city",
+        "county_name" : "Harris",
+        "region_name" : "H",
+        "status" : "Interviewed",
+        "status_date" : "6/1/2016"
+      },
+      {
+        "utility_name" : "Pasadena city",
+        "county_name" : "Harris",
+        "region_name" : "H",
+        "status" : "Interviewed",
+        "status_date" : "3/12/2016"
+      },
+      {
+        "utility_name" : "Pearland city (pt.)",
+        "county_name" : "Harris",
+        "region_name" : "H",
+        "status" : "Interviewed",
+        "status_date" : "2/25/2016"
+      },
+      {
+        "utility_name" : "Piney Point Village city",
+        "county_name" : "Harris",
+        "region_name" : "H",
+        "status" : "Complete",
+        "status_date" : "1/1/2016"
+      },
+      {
+        "utility_name" : "Seabrook city (pt.)",
+        "county_name" : "Harris",
+        "region_name" : "H",
+        "status" : "Complete",
+        "status_date" : "1/2/2016"
+      },
+      {
+        "utility_name" : "Shoreacres city (pt.)",
+        "county_name" : "Harris",
+        "region_name" : "H",
+        "status" : "Complete",
+        "status_date" : "1/3/2016"
+      },
+      {
+        "utility_name" : "South Houston city",
+        "county_name" : "Harris",
+        "region_name" : "H",
+        "status" : "Complete",
+        "status_date" : "1/4/2016"
+      },
+      {
+        "utility_name" : "Southside Place city",
+        "county_name" : "Harris",
+        "region_name" : "H",
+        "status" : "Complete",
+        "status_date" : "1/5/2016"
+      },
+      {
+        "utility_name" : "Spring Valley Village city",
+        "county_name" : "Harris",
+        "region_name" : "H",
+        "status" : "Complete",
+        "status_date" : "1/6/2016"
+      },
+      {
+        "utility_name" : "Stafford city (pt.)",
+        "county_name" : "Harris",
+        "region_name" : "H",
+        "status" : "Complete",
+        "status_date" : "1/7/2016"
+      },
+      {
+        "utility_name" : "Sugar Land city",
+        "county_name" : "Fort Bend",
+        "region_name" : "H",
+        "status" : "Interviewed",
+        "status_date" : "1/30/2016"
+      },
+      {
+        "utility_name" : "Taylor Lake Village city",
+        "county_name" : "Harris",
+        "region_name" : "H",
+        "status" : "Complete",
+        "status_date" : "1/8/2016"
+      },
+      {
+        "utility_name" : "Texas City city",
+        "county_name" : "Galveston",
+        "region_name" : "H",
+        "status" : "Complete",
+        "status_date" : "9/30/2015"
+      }
+    ]
+  }
+
+  createGrid(dataObject)
+  // Add data for progress-by-utility table
+  function createGrid(dataObject) {
+    var el = document.getElementById("grid-tenants").innerHTML
+    for (var key in dataObject) {
+      switch (key) {
+        case "headings" :
+          el += "<thead><tr>"
+          for (var heading in dataObject[key]) {
+            el += `<th data-column-id="${heading}">${dataObject[key][heading]}</th>`
+          }
+          el += "</tr></thead>"
+          break;
+        case "utilities" :
+          el += "<tbody>"
+          for (var i = 0; i < dataObject[key].length; i++) {
+            el += "<tr>"
+            for (var columnData in dataObject[key][i]) {
+              el += `<td>${dataObject[key][i][columnData]}</td>`
+            }
+            el += "</tr>"
+          }
+          el += "</tbody>"
+          break;
+        default :
+          break;
+      }
+    }
+    document.getElementById("grid-tenants").innerHTML = el
+  }
+
+</script>
+
+
+<%= content_for :body_end do %>
+<%= init_grid(
+              "grid-tenants",
+              url: "/tenants.json",
+              primaryKey: "id",
+              formatters: {
+
+              },
+              handlers: {
+                click: { fn: :inspect, url: "/tenants", identifier: 'id'}
+              }
+              ) %>
+              <% end %>

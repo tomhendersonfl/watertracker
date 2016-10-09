@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   get 'static_pages/support'
   get 'static_pages/contact'
   get 'chat_central', to: 'chat_rooms#home'
+  get 'tenants/track'
 
   devise_for :users
   resources :tenants
