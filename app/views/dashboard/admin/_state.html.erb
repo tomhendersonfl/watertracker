@@ -1,0 +1,243 @@
+<div class="block-header">
+  <h2>State Water Planner Dashboard</h2>
+  <ul class="actions">
+    <li>
+      <a href="">
+        <i class="zmdi zmdi-trending-up"></i>
+      </a>
+    </li>
+    <li>
+      <a href="">
+        <i class="zmdi zmdi-check-all"></i>
+      </a>
+    </li>
+    <li class="dropdown">
+      <a href="" data-toggle="dropdown">
+        <i class="zmdi zmdi-more-vert"></i>
+      </a>
+
+      <ul class="dropdown-menu dropdown-menu-right">
+        <li>
+          <a href="">Refresh</a>
+        </li>
+        <li>
+          <a href="">Manage Widgets</a>
+        </li>
+        <li>
+          <a href="">Widgets Settings</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<div class="card">
+  <div class="card-header">
+    <h2 id="graph-title-1">Statewide Conservation Progress</h2>
+    <small id="graph-title-2">State Water Plan vs. Savings Projections</small>
+    <ul class="actions">
+      <li>
+        <a href="">
+          <i class="zmdi zmdi-refresh-alt"></i>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <i class="zmdi zmdi-download"></i>
+        </a>
+      </li>
+      <li class="dropdown">
+        <a href="" data-toggle="dropdown">
+          <i class="zmdi zmdi-more-vert"></i>
+        </a>
+
+        <ul class="dropdown-menu dropdown-menu-right">
+          <li>
+            <a href="">Change Date Range</a>
+          </li>
+          <li>
+            <a href="">Change Graph Type</a>
+          </li>
+          <li>
+            <a href="">Other Settings</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <%= image_tag "State Water Plan Graph, v6.jpg", class: "img-responsive" %>
+</div>
+
+<section class="card mini-charts">
+  <div class="row">
+
+    <div class="col-sm-6 col-md-3">
+      <div class="mini-charts-item bgm-cyan">
+        <div class="clearfix">
+          <div class="chart stats-bar"></div>
+          <div class="count" >
+            <h5 class="white-text">Current Yearly Savings</h5>
+            <h4 id="current_annual_savings_af">2,000 AF</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-md-3">
+      <div class="mini-charts-item bgm-lightgreen">
+        <div class="clearfix">
+          <div class="chart stats-bar-2"></div>
+          <div class="count">
+            <h5 class="white-text">Current Yearly Savings (MG)</h5>
+            <h4 id="current_annual_savings_mg">3,000 MG</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-md-3">
+      <div class="mini-charts-item bgm-bluegray">
+        <div class="clearfix">
+          <div class="chart stats-line-2"></div>
+          <div class="count">
+            <h5 class="white-text">Participating Utilities</h5>
+            <h4 id="participating_utilities">871</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-md-3">
+      <div class="mini-charts-item bgm-orange">
+        <div class="clearfix">
+          <div class="chart stats-line"></div>
+          <div class="count">
+            <h5 class="white-text">Savings vs. Last Year</h5>
+            <h4 id="savings_vs_last_year">$10,000</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="dash-widgets">
+  <div class="card row">
+    <div class="col-md-6 col-sm-6">
+      <div id="site-visits" class="dw-item bgm-teal">
+        <div class="dwi-header">
+          <div class="p-20">
+            <div class="dash-widget-visits"></div>
+          </div>
+
+          <div class="dwih-title">
+            <h5 class="white-text">Total Statewide Conservation Savings</h5>
+          </div>
+          <ul class="actions actions-alt">
+            <li class="dropdown">
+              <a href="" data-toggle="dropdown">
+                <i class="zmdi zmdi-more-vert"></i>
+              </a>
+
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li>
+                  <a href="">Refresh</a>
+                </li>
+                <li>
+                  <a href="">Manage Widgets</a>
+                </li>
+                <li>
+                  <a href="">Widgets Settings</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="p-20">
+
+          <h5  class="white-text">Acre-feet Saved</h5>
+          <h3 class="m-0 f-400" id="total_savings_af">1000</h3>
+          <br/>
+          <h5 class="white-text">Total Cost of Water Saved</h5>
+          <h3 class="m-0 f-400" id="total_savings_cost">1000</h3>
+          <br/>
+          <h5 class="white-text">Customers with Annual Decreases</h5>
+          <h3 class="m-0 f-400" id="customers_with_decreases">1000</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-sm-6">
+      <div id="pie-charts" class="dw-item">
+        <div class="bgm-pink">
+          <div class="dwi-header">
+            <div class="dwih-title">
+              <h5 class="white-text">Average Savings by Region</h5>
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="text-center p-20 m-t-25">
+            <div class="easy-pie main-pie" id="pct_average_region_savings_2" data-percent="75">
+              <br><br>
+              <div class="percent" id="pct_average_region_savings">45</div>
+              <div class="pie-title">Savings vs. Last Year</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-t-20 p-b-20 text-center">
+          <div class="easy-pie sub-pie-1" id="pct_region_a_savings_2" data-percent="25">
+            <div class="percent" id="pct_region_a_savings">25</div>
+            <div class="pie-title">Worst Performer - Region A</div>
+          </div>
+          <div class="easy-pie sub-pie-2" id="pct_region_c_savings_2" data-percent="50">
+            <div class="percent" id="pct_region_c_savings">50</div>
+            <div class="pie-title">Best Performer - Region C</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card row">
+    <div class="col-md-3 col-sm-6">
+      <div id="pie-charts" class="dw-item">
+        <div class="bgm-blue">
+          <div class="dwi-header">
+            <div class="dwih-title">
+              <h5 class="white-text">Utility Achievement Rate</h5>
+            </div>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <div class="text-center p-20 m-t-25">
+            <div class="easy-pie main-pie" id="pct_average_utility_achieve_2"  data-percent="30">
+              <br><br>
+              <div class="percent" id="pct_average_utility_achieve">30</div>
+              <div class="pie-title">Statewide Adjusted Rate</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-t-20 p-b-20 text-center">
+          <div class="easy-pie sub-pie-1" id="pct_dallas_achieve_2" data-percent="0">
+            <div class="percent" id="pct_dallas_achieve"></div>
+            <div class="pie-title">Dallas</div>
+          </div>
+          <div class="easy-pie sub-pie-2" id="pct_austin_achieve_2" data-percent="0">
+            <div class="percent" id="pct_austin_achieve"></div>
+            <div class="pie-title">Austin</div>
+          </div>
+          <div class="easy-pie sub-pie-2" id="pct_houston_achieve_2" data-percent="0">
+            <div class="percent" id="pct_houston_achieve"></div>
+            <div class="pie-title">Houston</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

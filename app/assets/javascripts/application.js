@@ -14,3 +14,11 @@
 
 
 //= require functions/bootgrid
+
+$(document).ready(function(){
+    $(".email-button").click(function() {
+      var email = "tomhendersonfl@gmail.com";
+      var subject = "I need support";
+      document.location = "mailto:"+email+"?subject="+subject;
+    });
+});
