@@ -129,7 +129,7 @@ module BootgridHelper
   end # def build_it_grid_attribute_toggle
 
   def process_click_handler(grid, options={})
-    
+
     "$('##{grid}').bootgrid()
         .on('click.rs.jquery.bootgrid', function (e,rows,record)
             {

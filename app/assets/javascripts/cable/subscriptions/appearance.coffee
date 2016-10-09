@@ -1,8 +1,6 @@
 App.cable.subscriptions.create "AppearanceChannel",
 # Called when the subscription is ready for use on the server
   connected: ->
-    @install()
-    @appear()
 # Called when the WebSocket connection is closed
   disconnected: ->
     @uninstall()

@@ -4,8 +4,11 @@ class TenantsController < ApplicationController
   # GET /tenants
   # GET /tenants.json
   def index
-    @tenants = Tenant.all
-  end
+    respond_to do |format|
+      format.json {render json: process_search(Tenant)}
+      format.html # index.html.erb
+    end
+  end # def index
 
   # GET /tenants/1
   # GET /tenants/1.json

@@ -1,53 +1,72 @@
-<p id="notice"><%= notice %></p>
+<section id="content">
+    <div class="container">
 
-<h1>Tenants</h1>
+        <div class="card">
+            <div class="card-header ch-alt m-b-20">
+                <h2>Tenants
+                    <small>Create and maintain white-labeled application tenants.</small>
+                </h2>
+                <ul class="actions">
+                    <li>
+                        <a href="">
+                            <i class="zmdi zmdi-refresh-alt"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="zmdi zmdi-download"></i>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="" data-toggle="dropdown">
+                            <i class="zmdi zmdi-more-vert"></i>
+                        </a>
 
-<div class="table-responsive">
-  <table id="grid-tenants" class="table">
-    <thead>
-      <tr>
-        <th data-column-id="id" data-identifier="true">Tenant Id</th>
-        <th data-column-id="tenant_name" data-order="asc">Tenant Name</th>
-        <th data-column-id="subdomain">Subdomain</th>
-      </tr>
-    </thead>
-  </table>
-</div>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li>
+                                <a href="">Change Date Range</a>
+                            </li>
+                            <li>
+                                <a href="">Change Graph Type</a>
+                            </li>
+                            <li>
+                                <a href="">Other Settings</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <a href="<%= new_tenant_path %>" class="btn bgm-red btn-float waves-effect"><i class="zmdi zmdi-plus"></i>
+                </a>
+            </div>
+
+            <div class="table-responsive">
+                <table id="grid-tenants" class="table">
+                    <thead>
+                        <tr>
+                            <th data-column-id="tenant_name" data-order="asc">Name</th>
+                            <th data-column-id="subdomain" data-identifier="true">Subdomain</th>
+                            <th data-column-id="is_active" data-converter="yesno">Active?</th>
+                            <th data-column-id="access_token">Access Token</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+</section>
 
 <%= content_for :body_end do %>
 <%= init_grid(
-  "grid-tenants",
-  url: "/tenants.json",
-  primaryKey: "id",
-  formatters: {
+              "grid-tenants",
+              url: "/tenants.json",
+              primaryKey: "id",
+              formatters: {
 
-  },
-  handlers: {
-    click: { fn: :inspect, url: "/tenants", identifier: 'id'}
-  }
-) %>
-<% end %>
-
-
-
-<!-- # <table> -->
-<!-- #   <thead>
-#     <tr>
-  #     <th colspan="3"></th>
-  #   </tr>
-  # </thead>
-  #
-  # <tbody>
-    # <% @tenants.each do |tenant| %>
-      # <tr>
-        # <td><%= link_to 'Show', tenant %></td>
-        # <td><%= link_to 'Edit', edit_tenant_path(tenant) %></td>
-        # <td><%= link_to 'Destroy', tenant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      # </tr>
-    # <% end %>
-  # </tbody>
-# </table> -->
-
-<br>
-
-<%= link_to 'New Tenant', new_tenant_path %>
+              },
+              handlers: {
+                click: { fn: :inspect, url: "/tenants", identifier: 'id'}
+              }
+              ) %>
+              <% end %>

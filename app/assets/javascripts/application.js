@@ -29,7 +29,10 @@
 //= require vendors/bower_components/sweetalert/dist/sweetalert.min
 //= require vendors/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min
 //= require vendors/bower_components/jquery-placeholder/jquery.placeholder.min
+//= require bootgrid/jquery.bootgrid.updated.min
+
 //
+//= require functions/bootgrid
 //= require bootstrap-sprockets
 //= require cable
 //= require js/app.min
