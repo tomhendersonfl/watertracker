@@ -10,98 +10,36 @@
         </a>
       </div>
 
-      <!-- <div class="table-responsive">
-        <table id="grid-tenants" class="table table-striped">
-          <thead>
-            <tr>
-              <th data-column-id="tenant_name" data-order="asc">Name</th>
-              <th data-column-id="id" data-identifier="true">id</th>
-              <th data-column-id="is_active" data-converter="yesno">Active?</th>
-            </tr>
-          </thead>
-        </table>
-      </div> -->
-
       <div class="table-responsive">
-        <table id="grid-tenants" class="table table-striped">
-        </table>
+        <table id="data-table-basic" class="table table-striped bootgrid-table" aria-busy="false">
+          <thead>
+            <tr><th data-column-id="id" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">ID</span><span class="zmdi icon zmdi-sort-amount-desc"></span></a></th>
+              <th data-column-id="sender" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">Tenant</span><span class="zmdi icon"></span></a></th>
+              <th data-column-id="received" class="text-left" style=""><a href="javascript:void(0);" class="column-header-anchor sortable"><span class="text">Received</span><span class="zmdi icon"></span></a></th></tr>
+            </thead>
+            <tbody>
+              <% @tenants.each do |t|%>
+              <tr data-row-id="0"><td class="text-left" style=""><%= t.id %></td><td class="text-left" style=""><%= t.tenant_name%></td><td class="text-left" style=""><%= t.subdomain %></td></tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
       </div>
 
     </div>
-
-  </div>
-</section>
-
-<script type="text/javascript">
-  var dataURL = "data/tenant-index.json"
-  var callback = "utilities"
-  var dataObject = {}
-  requestData(dataURL,callback);
-
-  // Request data for dashboard graphs and widgets
-  function requestData(dataUrl,callback) {
-    var datahttp = new XMLHttpRequest();
-    datahttp.onreadystatechange = function() {
-      if (datahttp.readyState === 4 && datahttp.status === 200) {
-        switch (callback) {
-          case "dashboard" :
-            addDataToDom(JSON.parse(datahttp.responseText))
-            break
-          case "utilities" :
-            createGrid(JSON.parse(datahttp.responseText))
-            break
-          default :
-            addDataToDom(JSON.parse(datahttp.responseText))
-        }
-      }
-    }
-    datahttp.open("GET", dataUrl, false)
-    datahttp.send()
-  }
-
-  // Add data for progress-by-utility table
-  function createGrid(dataObject) {
-    var el = document.getElementById("grid-tenants").innerHTML
-    for (var key in dataObject) {
-      switch (key) {
-        case "headings" :
-          el += "<thead><tr>"
-          for (var heading in dataObject[key]) {
-            el += `<th data-column-id="${heading}">${dataObject[key][heading]}</th>`
-          }
-          el += "</tr></thead>"
-          break;
-        case "utilities" :
-          el += "<tbody>"
-          for (var i = 0; i < dataObject[key].length; i++) {
-            el += "<tr>"
-            for (var columnData in dataObject[key][i]) {
-              el += `<td>${dataObject[key][i][columnData]}</td>`
-            }
-            el += "</tr>"
-          }
-          el += "</tbody>"
-          break;
-        default :
-          break;
-      }
-    }
-    document.getElementById("grid-tenants").innerHTML = el
-  }
-
-</script>
+  </section>
 
 
-<%= content_for :body_end do %>
-<%= init_grid(
-              "grid-tenants",
-              url: "/tenants.json",
-              primaryKey: "id",
-              formatters: {
+  <%= content_for :body_end do %>
+  <%= init_grid(
+                "grid-tenants",
+                url: "/tenants.json",
+                primaryKey: "id",
+                formatters: {
 
-              },
-              handlers: {
-                click: { fn: :inspect, url: "/tenants", identifier: 'id'}
-              }
-              ) %>
-              <% end %>
+                },
+                handlers: {
+                  click: { fn: :inspect, url: "/tenants", identifier: 'id'}
+                }
+                ) %>
+                <% end %>
