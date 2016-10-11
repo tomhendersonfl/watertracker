@@ -1,16 +1,33 @@
 <div class="block-header">
-  <h1>State Water Planner Dashboard</h1>
+  <h2>State Water Planner Dashboard</h2>
   <ul class="actions">
-    <li><a href=""><i class="zmdi zmdi-trending-up"></i></a></li>
-    <li><a href=""><i class="zmdi zmdi-check-all"></i></a></li>
-    <li class="dropdown"><a href="" data-toggle="dropdown"><i class="zmdi zmdi-more-vert"></i></a>
+    <li>
+      <a href="">
+        <i class="zmdi zmdi-trending-up"></i>
+      </a>
+    </li>
+    <li>
+      <a href="">
+        <i class="zmdi zmdi-check-all"></i>
+      </a>
+    </li>
+    <li class="dropdown">
+      <a href="" data-toggle="dropdown">
+        <i class="zmdi zmdi-more-vert"></i>
+      </a>
+
       <ul class="dropdown-menu dropdown-menu-right">
-        <li><a href="">Refresh</a></li>
-        <li><a href="">Manage Widgets</a></li>
-        <li><a href="">Widgets Settings</a></li>
+        <li>
+          <a href="">Refresh</a>
+        </li>
+        <li>
+          <a href="">Manage Widgets</a>
+        </li>
+        <li>
+          <a href="">Widgets Settings</a>
+        </li>
       </ul>
     </li>
-    <li><a href=""><i class="zmdi zmdi-refresh"></i></a></li>
   </ul>
 </div>
 <div class="card">
@@ -59,7 +76,7 @@
           <div class="chart stats-bar"></div>
           <div class="count" >
             <h5 class="white-text">Current Yearly Savings</h5>
-            <h4 id="current_annual_savings_af" class="white-text">19,905 AF</h4>
+            <h4 id="current_annual_savings_af">2,000 AF</h4>
           </div>
         </div>
       </div>
@@ -71,7 +88,7 @@
           <div class="chart stats-bar-2"></div>
           <div class="count">
             <h5 class="white-text">Current Yearly Savings (MG)</h5>
-            <h4 id="current_annual_savings_mg" class="white-text">6,487 MG</h4>
+            <h4 id="current_annual_savings_mg">3,000 MG</h4>
           </div>
         </div>
       </div>
@@ -83,7 +100,7 @@
           <div class="chart stats-line-2"></div>
           <div class="count">
             <h5 class="white-text">Participating Utilities</h5>
-            <h4 id="participating_utilities" class="white-text">871</h4>
+            <h4 id="participating_utilities">871</h4>
           </div>
         </div>
       </div>
@@ -95,7 +112,7 @@
           <div class="chart stats-line"></div>
           <div class="count">
             <h5 class="white-text">Savings vs. Last Year</h5>
-            <h4 id="savings_vs_last_year" class="white-text">3,652 AF</h4>
+            <h4 id="savings_vs_last_year">$10,000</h4>
           </div>
         </div>
       </div>
@@ -138,35 +155,21 @@
         </div>
 
         <div class="p-20">
-          <div class="pull-right">
-            <div class="stats-bar"></div>
-          </div>
-          <div class="media-body">
-            <h5  class="white-text">Acre-feet Saved</h5>
-            <h3 class="m-0 f-400 white-text" id="total_savings_af">159,240</h3>
-            <br/>
-          </div>
-          <div class="pull-right">
-            <div class="stats-bar-2"></div>
-          </div>
-          <div class="media-body">
-            <h5 class="white-text">Total Cost of Water Saved</h5>
-            <h3 class="m-0 f-400 white-text" id="total_savings_cost">$24,456,799</h3>
-            <br/>
-          </div>
-          <div class="pull-right">
-            <div class="stats-line"></div>
-          </div>
-          <div class="media-body">
-            <h5 class="white-text">Customers with Annual Decreases</h5>
-            <h3 class="m-0 f-400 white-text" id="customers_with_decreases">1,253,965</h3>
-          </div>
+
+          <h5  class="white-text">Acre-feet Saved</h5>
+          <h3 class="m-0 f-400" id="total_savings_af">1000</h3>
+          <br/>
+          <h5 class="white-text">Total Cost of Water Saved</h5>
+          <h3 class="m-0 f-400" id="total_savings_cost">1000</h3>
+          <br/>
+          <h5 class="white-text">Customers with Annual Decreases</h5>
+          <h3 class="m-0 f-400" id="customers_with_decreases">1000</h3>
         </div>
       </div>
     </div>
 
     <div class="col-md-6 col-sm-6">
-      <div id="pie-charts" class="dw-item bgm-pink">
+      <div id="pie-charts" class="dw-item">
         <div class="bgm-pink">
           <div class="dwi-header">
             <div class="dwih-title">
@@ -177,29 +180,29 @@
           <div class="clearfix"></div>
 
           <div class="text-center p-20 m-t-25">
-            <div class="easy-pie main-pie" id="pct_average_region_savings_2" data-percent="18">
+            <div class="easy-pie main-pie" id="pct_average_region_savings_2" data-percent="75">
               <br><br>
-              <div class="percent" id="pct_average_region_savings">18</div>
+              <div class="percent" id="pct_average_region_savings">45</div>
               <div class="pie-title">Savings vs. Last Year</div>
             </div>
           </div>
         </div>
 
         <div class="p-t-20 p-b-20 text-center">
-          <div class="easy-pie sub-pie-1" id="pct_region_a_savings_2" data-percent="4">
-            <div class="percent" id="pct_region_a_savings">4</div>
-            <div class="pie-title white-text">Region A</div>
+          <div class="easy-pie sub-pie-1" id="pct_region_a_savings_2" data-percent="25">
+            <div class="percent" id="pct_region_a_savings">25</div>
+            <div class="pie-title">Worst Performer - Region A</div>
           </div>
-          <div class="easy-pie sub-pie-2" id="pct_region_c_savings_2" data-percent="32">
-            <div class="percent" id="pct_region_c_savings">32</div>
-            <div class="pie-title white-text">Region H</div>
+          <div class="easy-pie sub-pie-2" id="pct_region_c_savings_2" data-percent="50">
+            <div class="percent" id="pct_region_c_savings">50</div>
+            <div class="pie-title">Best Performer - Region C</div>
           </div>
         </div>
       </div>
     </div>
   </div>
   <div class="card row">
-    <div class="col-md-6 col-sm-6">
+    <div class="col-md-3 col-sm-6">
       <div id="pie-charts" class="dw-item">
         <div class="bgm-blue">
           <div class="dwi-header">
@@ -211,25 +214,25 @@
           <div class="clearfix"></div>
 
           <div class="text-center p-20 m-t-25">
-            <div class="easy-pie main-pie" id="pct_average_utility_achieve_2"  data-percent="20">
+            <div class="easy-pie main-pie" id="pct_average_utility_achieve_2"  data-percent="30">
               <br><br>
-              <div class="percent" id="pct_average_utility_achieve">20</div>
+              <div class="percent" id="pct_average_utility_achieve">30</div>
               <div class="pie-title">Statewide Adjusted Rate</div>
             </div>
           </div>
         </div>
 
         <div class="p-t-20 p-b-20 text-center">
-          <div class="easy-pie sub-pie-1" id="pct_dallas_achieve_2" data-percent="18">
-            <div class="percent" id="pct_dallas_achieve">18</div>
+          <div class="easy-pie sub-pie-1" id="pct_dallas_achieve_2" data-percent="0">
+            <div class="percent" id="pct_dallas_achieve"></div>
             <div class="pie-title">Dallas</div>
           </div>
-          <div class="easy-pie sub-pie-2" id="pct_austin_achieve_2" data-percent="36">
-            <div class="percent" id="pct_austin_achieve">36</div>
+          <div class="easy-pie sub-pie-2" id="pct_austin_achieve_2" data-percent="0">
+            <div class="percent" id="pct_austin_achieve"></div>
             <div class="pie-title">Austin</div>
           </div>
-          <div class="easy-pie sub-pie-2" id="pct_houston_achieve_2" data-percent="9">
-            <div class="percent" id="pct_houston_achieve">9</div>
+          <div class="easy-pie sub-pie-2" id="pct_houston_achieve_2" data-percent="0">
+            <div class="percent" id="pct_houston_achieve"></div>
             <div class="pie-title">Houston</div>
           </div>
         </div>
