@@ -31,8 +31,5 @@
 //= require bootgrid/jquery.bootgrid.updated.min
 //= require bower_components/autosize/dist/autosize.min
 
-//= require turbolinks
-//= require_tree .
-//= require bootstrap-sprockets
 //= require functions/bootgrid
 //= require cable
