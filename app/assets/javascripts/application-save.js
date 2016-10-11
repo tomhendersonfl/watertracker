@@ -1,6 +1,6 @@
 //= require bower_components/jquery/dist/jquery.min
-//= require jquery
 //= require jquery_ujs
+//= require jquery
 //= require bower_components/bootstrap/dist/js/bootstrap.min
 //= require bower_components/flot/jquery.flot
 //= require bower_components/flot/jquery.flot.resize
@@ -21,13 +21,11 @@
 
 //= require bower_components/bootstrap-select/dist/js/bootstrap-select
 //= require bower_components/chosen/chosen.jquery
-
 //= require fileinput/fileinput.min
 //= require summernote/dist/summernote-updated.min
 //= require input-mask/input-mask.min
 //= require farbtastic/farbtastic.min
 //= require bower_components/jquery.hotkeys/jquery.hotkeys
-
 //= require bootgrid/jquery.bootgrid.updated.min
 //= require bower_components/autosize/dist/autosize.min
 

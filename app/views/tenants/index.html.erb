@@ -48,8 +48,10 @@
             <thead>
               <tr>
                 <th data-column-id="id" data-type="numeric">ID</th>
-                <th data-column-id="sender">Sender</th>
-                <th data-column-id="received" data-order="desc">Received</th>
+                <th data-column-id="tenant_name" data-order="asc">Tenant Name</th>
+                <th data-column-id="tenant_type">Tenant Type</th>
+                <th data-column-id="region">Region</th>
+                <th data-column-id="subdomain">Subdomain</th>
               </tr>
             </thead>
             <tbody>
@@ -57,6 +59,8 @@
               <tr>
                 <td class="text-left" style=""><%= link_to t.id, edit_tenant_path(t) %></td>
                 <td class="text-left" style=""><%= t.tenant_name%></td>
+                <td class="text-left" style=""><%= t.tenant_type%></td>
+                <td class="text-left" style=""><%= t.region%></td>
                 <td class="text-left" style=""><%= t.subdomain %></td>
               </tr>
               <% end %>
