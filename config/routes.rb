@@ -51,6 +51,7 @@ Rails.application.routes.draw do
   get 'static_pages/support'
   get 'static_pages/contact'
   get 'static_pages/profile_about'
+
   get 'chat_central', to: 'chat_rooms#home'
   get 'tenants/track'
 

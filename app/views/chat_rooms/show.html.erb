@@ -5,6 +5,7 @@
 </div>
 
 <%= form_for @message, url: '#' do |f| %>
+  <%= hidden_field_tag 'chat_room_id', @chat_room.id %>
   <div class="form-group">
     <%= f.label :body %>
     <%= f.text_area :body, class: 'form-control' %>
@@ -13,7 +14,7 @@
 
   <%= f.submit "Post", class: 'btn btn-primary btn-lg' %>
   <span class="btn btn-primary btn-lg">
-    <%= link_to "Exit Room", root_path, class: "btn-primary" %>
+    <%= link_to "Exit Room", chat_rooms_path, class: "btn-primary" %>
   </span>
 
 <% end %>

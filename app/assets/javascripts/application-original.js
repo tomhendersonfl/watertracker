@@ -3,8 +3,6 @@
 //= require jquery_ujs
 //= require bower_components/bootstrap/dist/js/bootstrap.min
 
-
-
 //= require bower_components/flot/jquery.flot
 //= require bower_components/flot/jquery.flot.resize
 //= require bower_components/flot.curvedlines/curvedLines
@@ -14,13 +12,17 @@
 //= require bower_components/Waves/dist/waves.min
 //= require bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min
 
-//= require_tree ../theme
+//= require theme
 
 //= require bower_components/bootstrap-select/dist/js/bootstrap-select
 //= require bower_components/chosen/chosen.jquery
 //= require bootgrid/jquery.bootgrid.updated.min
 //= require bower_components/autosize/dist/autosize.min
 //= require bootstrap-sprockets
+
 //= require functions/bootgrid
+//= require_tree ./channels
 //= require_tree .
 //= require cable
+
+//= require turbolinks
