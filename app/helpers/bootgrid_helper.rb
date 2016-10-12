@@ -70,7 +70,7 @@ module BootgridHelper
            },
            css: {
                         icons: 'zmdi icon',
-                        iconColumns: 'zmdi-view-module',
+                        iconColumns: 'zmdi zmdi-view-module',
                         iconDown: 'zmdi-sort-amount-desc',
                         iconRefresh: 'zmdi-refresh',
                         iconUp: 'zmdi-sort-amount-asc'
