@@ -32,4 +32,3 @@
 //= require bower_components/autosize/dist/autosize.min
 
 //= require functions/bootgrid
-//= require cable

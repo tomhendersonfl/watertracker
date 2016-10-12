@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie9"><![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= yield :title %></title>
+
+  <!-- CSS -->
+  <%= stylesheet_link_tag "application.css", media: "all", "data-turbolinks-track" => false %>
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+  <%= yield %>
+
+  <!-- Javascript Libraries -->
+
+  <%= javascript_include_tag "application.js", "data-turbolinks-track" => false %>
+  <%= yield :body_end %>
+  <script>
+    $(document).ready(function(){
+
+      <% if flash[:notice].present? %>
+      notify('<%= flash[:notice] %>', 'info', 'center');
+      <% end %>
+
+      <% if flash[:success].present? %>
+      notify('<%= flash[:success] %>', 'success', 'center');
+      <% end %>
+
+      <% if flash[:error].present? %>
+      notify('<%= flash[:error] %>', 'danger');
+      <% end %>
+
+      <% if flash[:alert].present? %>
+      notify('<%= flash[:alert] %>', 'danger');
+      <% end %>
+
+    });
+
+  </script>
+
+</body>
+</html>

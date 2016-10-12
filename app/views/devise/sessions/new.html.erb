@@ -1,31 +1,50 @@
-<h2>Log in</h2>
+<style type="text/css">
+  .login-content {
+    background-image: image_url("waterlifecrop.jpg") !important;
+    overflow: 'hidden';
+  }
+</style>
 
-<div class="card">
-  <div class= "col-md-4">
-
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true %>
+<div class="login-content">
+  <!-- Login -->
+  <div class="lc-block toggled" id="l-login">
+    <div class="lcb-form">
+      <div>
       </div>
-
-      <div class="field">
-        <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
-      </div>
-
-      <% if devise_mapping.rememberable? -%>
-        <div class="field">
-          <%= f.check_box :remember_me %>
-          <%= f.label :remember_me %>
+      <h4 class="text-left m-b-20">Account Sign In</h4>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+      <div class="form-group">
+        <div class="fg-line">
+          <%= f.label "Email Address", class: "control-label email" %>
+          <%#= f.text_field :email, autofocus: true, class: "form-control input-lg", placeholder: "e.g. peter.pan@neverland.com" %>
+          <input type="email" class="form-control input-lg" required placeholder="e.g. peter.pan@neverland.com" id="user_email" name="user[email]" >
         </div>
-      <% end -%>
-
-      <div class="actions">
-        <%= f.submit "Log in" %>
       </div>
-    <% end %>
-    <%= render "devise/shared/links" %>
+
+      <div class="form-group">
+        <div class="fg-line">
+          <%= f.label "Password", class: "control-label" %>
+          <input type="password" class="form-control input-lg" placeholder="your secret password" id="user_password" name="user[password]">
+        </div>
+      </div>
+
+      <%= f.button'Sign In', class: 'btn btn-primary btn-lg m-b-20 p-r-30 p-l-30 waves-effect', style: 'width: 100%' %>
+      <% end %>
+      <div class="f-16 m-b-5">Not yet registered? <%= link_to "Sign up", new_user_registration_path %> now!</div>
+      <div class="f-16 m-b-20">Forgot your password? <%= link_to "Reset", new_user_password_path %> it now!</div>
+
+      <br>
+      <div class="text-center m-t-10">
+        Powered by <%= image_tag 'Goldwater-Project_small_LOGO.png', style: "height: 30px; margin-top: -4px; width: inherit !important; margin-bottom: inherit !important;" %>
+      </div>
+
+      <br>
+      <div class="terms" style="color: #999">
+        <%= link_to 'Privacy Policy', '#'  %> | <%= link_to 'Terms and Conditions', '#' %> | &copy; 2016 Goldwater
+      </div>
+
 
   </div>
+
 </div>
