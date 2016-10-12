@@ -1,6 +1,6 @@
 <style type="text/css">
   .login-content {
-    background-image: image_url("waterlifecrop.jpg") !important;
+    background-image: url(<%= asset_path("waterlifecrop.jpg") %>) !important;
     overflow: 'hidden';
   }
 </style>
@@ -8,7 +8,7 @@
 <div class="login-content">
   <!-- Login -->
   <div class="lc-block toggled" id="l-login">
-    <div class="lcb-form">
+    <div class="lcb-form" style="opacity: 0.8">
       <div>
       </div>
       <h4 class="text-left m-b-20">Account Sign In</h4>
