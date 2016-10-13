@@ -1,4 +1,5 @@
 <h1>Chat Rooms</h1>
+<h2><%= @current_user.first_name + " " + @current_user.last_name %></h2>
 <p class="lead"><%= link_to 'New chat room', new_chat_room_path, class: 'btn bth-primary' %></p>
 <ul>
   <%= render @chat_rooms %>
